@@ -1,0 +1,42 @@
+/* Todos styling */
+.done {
+    background-color: rgb(223, 223, 223);
+    border-left: solid 5px rgb(21, 156, 9);
+}
+
+.done > p:last-child {
+    color: rgb(21, 156, 9);
+}
+
+.ongoing {
+    background-color: rgb(255, 255, 255);
+    border-left: solid 5px rgb(233, 159, 1);
+}
+
+.ongoing > p:last-child {
+    color: rgb(233, 159, 1);
+}
+
+.todo {
+    background-color: rgb(255, 255, 255);
+    border-left: solid 5px rgb(233, 86, 1);
+}
+
+.todo > p:last-child {
+    color: rgb(233, 86, 1);
+}
+
+
+article {
+    width: 80vw;
+    padding: 10px 2vw;
+    margin: 10px 0px;
+    border-radius: 10px;
+}
+
+select {
+    padding: 5px 10px;
+    margin-left: 5px;
+    border: solid 1px rgb(172, 172, 172);
+    border-radius: 5px;
+}
