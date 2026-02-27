@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import type { CSSProperties } from 'react'
 import { PuffLoader } from 'react-spinners'
+
+import Header from './components/header'
 import type ToDo from './interfaces/ToDo'
 import TodoItem from './components/TodoItem'
 
@@ -50,7 +52,17 @@ function App() {
 
   return (
     <>
+    {/* Header */}
+    <Header />
+
     <main>
+      
+      {/* Form to add todo-items */}
+      <section>
+        <h2>Lägg till i listan</h2>
+      </section>
+
+      {/* Todo-list */}
       <section>
         <h2>Att göra</h2>
 

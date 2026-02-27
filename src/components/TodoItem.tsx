@@ -1,9 +1,14 @@
+import { useState } from 'react';
 import type ToDo from '../interfaces/ToDo'
 import "./TodoItem.css"
 
 //Article elements
 const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
 
+  //States
+  const [error, setError] = useState<String | null>(null);
+
+  //Updating status obj
   const updateTodo = async (e: any) => {
 
     const newStatus = e.target.value;
@@ -12,6 +17,7 @@ const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
       status: newStatus
     }
 
+    //Updating with fetch API
     try {
       const res = await fetch("https://dt201g-lab2-api.onrender.com/todo/" + item._id, {
           method: "PUT",
@@ -27,7 +33,7 @@ const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
       }
 
     } catch(error) {
-
+      setError("Ett fel uppstod. Försök igen senare.");
     }
   }
 
@@ -43,6 +49,7 @@ const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
             <option>Avklarad</option>
             <option>Ej påbörjad</option>
           </select>
+          <span>{ error }</span>
         </form>
     </article>
   )
