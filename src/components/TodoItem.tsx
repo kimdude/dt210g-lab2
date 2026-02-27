@@ -19,6 +19,8 @@ const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
 
     //Updating with fetch API
     try {
+      setError(null);
+
       const res = await fetch("https://dt201g-lab2-api.onrender.com/todo/" + item._id, {
           method: "PUT",
           headers: {

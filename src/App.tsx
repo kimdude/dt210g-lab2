@@ -5,6 +5,7 @@ import { PuffLoader } from 'react-spinners'
 import Header from './components/header'
 import type ToDo from './interfaces/ToDo'
 import TodoItem from './components/TodoItem'
+import TodoForm from './components/TodoForm'
 
 import './App.css'
 
@@ -60,6 +61,7 @@ function App() {
       {/* Form to add todo-items */}
       <section>
         <h2>Lägg till i listan</h2>
+        <TodoForm todoUpdate={getTodos}/>
       </section>
 
       {/* Todo-list */}
