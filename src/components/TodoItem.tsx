@@ -35,15 +35,35 @@ const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
       }
 
     } catch(error) {
-      setError("Ett fel uppstod. Försök igen senare.");
+      setError("Ett fel uppstod vid uppdatering. Försök igen senare.");
+    }
+  }
+  
+  const deleteTodo = async() => {
+    try {
+      const result = await fetch("https://dt201g-lab2-api.onrender.com/todo/" + item._id, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+
+      if(result.ok) {
+        todoUpdate();
+      }
+
+    } catch (error) {
+      setError("Ett fel uppstod vid radering. Försök igen senare.");
     }
   }
 
   return (
     <article className={item.status === "Avklarad" ? ("done") : item.status === "Påbörjad" ? ("ongoing") : ("todo")}>
+      <div>
         <h3>{item.name}</h3>
         <p>{item.descr}</p>
 
+        {/* Input to update status */}
         <form>
           <label htmlFor="status" id="status">Ändra status:</label>
           <select name="status" id="status" defaultValue={item.status} onChange={updateTodo}>
@@ -53,6 +73,10 @@ const TodoItem = ({item, todoUpdate}: { item: ToDo, todoUpdate: Function}) => {
           </select>
           <span>{ error }</span>
         </form>
+      </div>
+
+      {/* Delete button */}
+      <span className="deleteBtn" onClick={deleteTodo}>Ta bort</span>
     </article>
   )
 }

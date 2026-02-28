@@ -36,8 +36,8 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
             validationErrors.name = "Namnet måste vara längre än 3 tecken.";
         }
 
-        if(data.descr.length > 20) {
-            validationErrors.descr = "Beskrivningen måste vara under 20 tecken.";
+        if(data.descr.length > 200) {
+            validationErrors.descr = "Beskrivningen måste vara under 200 tecken.";
         }
 
         return validationErrors;
@@ -84,14 +84,14 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
   return (
     <form onSubmit={submitForm}>
         {/* Name input*/}
-        <label htmlFor="name">Namn: </label>
+        <label htmlFor="name">Namn: </label><br />
         <input type="text" name="name" id="name" value={formData.name} onChange={(event) => setFormData({...formData, name: event.target.value})} />
         {errors.name && <span className="errors">{errors.name}</span>}
         <br />
 
         {/* Description input */}
-        <label htmlFor="descr">Beskrivning: </label>
-        <input type="text" name="descr" id="descr" value={formData.descr} onChange={(event) => setFormData({...formData, descr: event.target.value})} />
+        <label htmlFor="descr">Beskrivning: </label><br />
+        <textarea name="descr" id="descr" value={formData.descr} onChange={(event) => setFormData({...formData, descr: event.target.value})}></textarea>
         {errors.descr && <span className="errors">{errors.descr}</span>}
         <br />
 

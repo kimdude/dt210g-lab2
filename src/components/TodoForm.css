@@ -1,9 +1,13 @@
-input {
+input, textarea {
     width: 250px;
     margin: 5px 0px;
     border: solid 1px rgb(175, 175, 175);
     border-radius: 5px;
     padding: 5px 10px;
+}
+
+textarea {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 input[type="submit"] {

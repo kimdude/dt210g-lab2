@@ -26,8 +26,8 @@
     color: rgb(233, 86, 1);
 }
 
-
 article {
+    display: flex;
     width: 80vw;
     padding: 10px 2vw;
     margin: 10px 0px;
@@ -39,4 +39,15 @@ select {
     margin-left: 5px;
     border: solid 1px rgb(172, 172, 172);
     border-radius: 5px;
+}
+
+article > span {
+    display: block;
+    margin-left: auto;
+    text-decoration: underline;
+    color: red;
+}
+
+article > span:hover {
+    cursor: pointer;
 }
