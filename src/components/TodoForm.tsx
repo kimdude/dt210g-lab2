@@ -13,7 +13,8 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
 
     interface ErrorsData {
         name?: string,
-        descr?: string
+        descr?: string,
+        serverErr?: string
     }
 
     //State
@@ -62,7 +63,7 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
             todoUpdate();
             
         } catch (error) {
-            throw error;
+            setErrors({...errors, serverErr: "Ett fel uppstod. Prova igen senare."});
         }
     }
 
@@ -103,7 +104,8 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
             <option value="Ej påbörjad">Ej påbörjad</option>
         </select><br />
 
-        <input type="submit" value="Lägg till" />
+        <input type="submit" value="Lägg till" /><br />
+        {errors.serverErr && <span className="errors">{errors.serverErr}</span>}
     </form>
   )
 }

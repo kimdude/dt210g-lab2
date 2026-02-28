@@ -33,7 +33,7 @@ function App() {
     try {
       setLoading(true);
       setError(null);
- 
+
       const response = await fetch("https://dt201g-lab2-api.onrender.com/todo");
 
       if(response.ok) {
@@ -71,7 +71,7 @@ function App() {
         <h2>Att göra</h2>
 
         {/* Setting errors */}
-        { error && <p>{error}</p> }
+        { error && <span className="error">{error}</span> }
 
         {/* Setting loading-icon */}
         { loading && <PuffLoader cssOverride={override} />}
