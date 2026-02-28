@@ -25,14 +25,14 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
         const validationErrors: ErrorsData = {};
 
         if(!data.name) {
-            validationErrors.name = "Fyll i ditt namn.";
+            validationErrors.name = "Ange ett namn.";
         }
 
         if(!data.descr) {
-            validationErrors.descr = "Fyll i en beskrivning.";
+            validationErrors.descr = "Ange en beskrivning.";
         }
 
-        if(data.name.length <= 3) {
+        if(data.name && data.name.length <= 3) {
             validationErrors.name = "Namnet måste vara längre än 3 tecken.";
         }
 
@@ -85,13 +85,15 @@ function TodoForm({todoUpdate} : {todoUpdate: Function}) {
     <form onSubmit={submitForm}>
         {/* Name input*/}
         <label htmlFor="name">Namn: </label>
-        <input type="text" name="name" id="name" value={formData.name} onChange={(event) => setFormData({...formData, name: event.target.value})} /><br />
+        <input type="text" name="name" id="name" value={formData.name} onChange={(event) => setFormData({...formData, name: event.target.value})} />
         {errors.name && <span className="errors">{errors.name}</span>}
+        <br />
 
         {/* Description input */}
         <label htmlFor="descr">Beskrivning: </label>
-        <input type="text" name="descr" id="descr" value={formData.descr} onChange={(event) => setFormData({...formData, descr: event.target.value})} /><br />
+        <input type="text" name="descr" id="descr" value={formData.descr} onChange={(event) => setFormData({...formData, descr: event.target.value})} />
         {errors.descr && <span className="errors">{errors.descr}</span>}
+        <br />
 
         {/* Status input */}
         <label htmlFor="status">Ändra status:</label>

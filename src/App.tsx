@@ -59,9 +59,11 @@ function App() {
     <main>
       
       {/* Form to add todo-items */}
-      <section>
-        <h2>Lägg till i listan</h2>
-        <TodoForm todoUpdate={getTodos}/>
+      <section id="formSection">
+        <div>
+          <h2>Lägg till i listan</h2>
+          <TodoForm todoUpdate={getTodos}/>
+        </div>
       </section>
 
       {/* Todo-list */}

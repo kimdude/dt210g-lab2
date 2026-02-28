@@ -1,0 +1,23 @@
+input {
+    width: 250px;
+    margin: 5px 0px;
+    border: solid 1px rgb(175, 175, 175);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    width: fit-content;
+    background-color: rgb(240, 106, 10);
+}
+
+.errors {
+    width: fit-content;
+    display: block;
+    margin: 10px 0px;
+    padding: 5px 10px;
+    border: solid 1px red;
+    border-radius: 5px;
+    background-color: rgba(248, 0, 0, 0.3);
+}

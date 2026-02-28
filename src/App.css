@@ -1,3 +1,10 @@
 main {
     padding: 2vw;
 }
+
+#formSection {
+    width: 80vw;
+    padding: 20px 2vw;
+    border-radius: 15px;
+    background-color: rgb(223, 223, 223);
+}
